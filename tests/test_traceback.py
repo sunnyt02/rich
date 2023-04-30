@@ -345,6 +345,7 @@ def test_rich_traceback_omit_optional_local_flag(
 
 
 if __name__ == "__main__":  # pragma: no cover
+
     expected = render(get_exception())
 
     with open("_exception_render.py", "wt") as fh:

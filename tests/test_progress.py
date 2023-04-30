@@ -150,6 +150,7 @@ def test_spinner_column():
 
 
 def test_download_progress_uses_decimal_units() -> None:
+
     column = DownloadColumn()
     test_task = Task(1, "test", 1000, 500, _get_time=lambda: 1.0)
     rendered_progress = str(column.render(test_task))
@@ -158,6 +159,7 @@ def test_download_progress_uses_decimal_units() -> None:
 
 
 def test_download_progress_uses_binary_units() -> None:
+
     column = DownloadColumn(binary_units=True)
     test_task = Task(1, "test", 1024, 512, _get_time=lambda: 1.0)
     rendered_progress = str(column.render(test_task))
@@ -278,6 +280,7 @@ def test_render() -> None:
 
 
 def test_track() -> None:
+
     console = Console(
         file=io.StringIO(),
         force_terminal=True,
@@ -336,6 +339,7 @@ def test_progress_track() -> None:
 
 
 def test_columns() -> None:
+
     console = Console(
         file=io.StringIO(),
         force_terminal=True,

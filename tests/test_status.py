@@ -6,6 +6,7 @@ from rich.status import Status
 
 
 def test_status():
+
     console = Console(
         color_system=None, width=80, legacy_windows=False, get_time=lambda: 0.0
     )

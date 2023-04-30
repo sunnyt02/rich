@@ -40,6 +40,7 @@ def make_widths_table() -> List[Tuple[int, int, int]]:
 
 
 def get_cell_size(table: List[Tuple[int, int, int]], character: str) -> int:
+
     codepoint = ord(character)
     lower_bound = 0
     upper_bound = len(table) - 1
