@@ -68,6 +68,11 @@ from .styled import Styled
 from .terminal_theme import DEFAULT_TERMINAL_THEME, SVG_EXPORT_THEME, TerminalTheme
 from .text import Text, TextType
 from .theme import Theme, ThemeStack
+from spellchecker import SpellChecker
+
+
+
+
 
 if TYPE_CHECKING:
     from ._windows import WindowsConsoleFeatures
@@ -1478,8 +1483,17 @@ class Console:
         except errors.StyleSyntaxError as error:
             if default is not None:
                 return self.get_style(default)
+            
+            #loads up default words from dictionary
+            spell = SpellChecker()
+             
+           
+            spell.word_frequency.load_text_file('./rich/stylenames.txt')
+            # Get a list of `likely` options (not necessary, just wanted to see)
+            print(spell.candidates(name))
+            correctStyle = spell.correction(name)
             raise errors.MissingStyle(
-                f"Failed to get style {name!r}; {error}"
+                f"Failed to get style {name!r}; {error}, did you mean '{correctStyle}'?"
             ) from None
 
     def _collect_renderables(
