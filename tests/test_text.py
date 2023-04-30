@@ -9,7 +9,6 @@ from rich.text import Span, Text
 from rich.errors import MissingStyle
 
 
-
 def test_span():
     span = Span(1, 10, "foo")
     repr(span)
